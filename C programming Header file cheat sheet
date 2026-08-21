@@ -1,0 +1,212 @@
+ 
+NETROKONA UNIVERSITY
+Department of Computer Science & Engineering
+7th Batch
+
+ASSIGNMENT
+C PROGRAMMING
+HEADER FILES CHEAT SHEET
+
+
+Submitted By	MD. MINHAZ JUBYER AFRIDI
+Department	Computer Science & Engineering (CSE)
+Batch	7th Batch
+University	Netrokona University
+ 
+C PROGRAMMING — HEADER FILES CHEAT SHEET
+Standard Library Header Files · Functions · Descriptions · Examples
+1. <stdio.h> — Standard Input/Output
+কাজ: Keyboard থেকে input নেওয়া, screen-এ output দেখানো এবং file নিয়ে কাজ করার জন্য ব্যবহৃত হয়।
+Function / Item	Description	Example
+printf()	Screen-এ formatted output দেখায়	printf("Name: %s\n", name);
+scanf()	Keyboard থেকে formatted input নেয়	scanf("%f", &price);
+sprintf()	Formatted data string-এর মধ্যে রাখে	sprintf(text, "Total = %d", total);
+sscanf()	String থেকে formatted data পড়ে	sscanf(data, "%d", &num);
+fprintf()	File-এ formatted output লেখে	fprintf(fp, "Marks: %d", marks);
+fscanf()	File থেকে formatted input নেয়	fscanf(fp, "%d", &marks);
+getchar()	একটি character input নেয়	char ch = getchar();
+putchar()	একটি character screen-এ দেখায়	putchar('#');
+fgets()	একটি line/string input নেয়	fgets(name, 50, stdin);
+puts()	String screen-এ দেখায় এবং newline দেয়	puts("Welcome to C");
+fputs()	File-এ string লেখে	fputs("Computer Science", fp);
+fopen()	File open করে	FILE *fp = fopen("data.txt", "w");
+fclose()	Open করা file বন্ধ করে	fclose(fp);
+fread()	Binary file থেকে data পড়ে	fread(data, sizeof(int), 5, fp);
+fwrite()	Binary file-এ data লেখে	fwrite(data, sizeof(int), 5, fp);
+fseek()	File pointer-এর position পরিবর্তন করে	fseek(fp, 10, SEEK_SET);
+ftell()	File pointer-এর বর্তমান position জানায়	long pos = ftell(fp);
+rewind()	File pointer শুরুতে নিয়ে যায়	rewind(fp);
+feof()	File-এর শেষ পর্যন্ত পৌঁছেছে কিনা পরীক্ষা করে	if (feof(fp)) printf("End");
+ferror()	File-এ error হয়েছে কিনা পরীক্ষা করে	if (ferror(fp)) puts("File error");
+remove()	File delete করে	remove("temp.txt");
+rename()	File-এর নাম পরিবর্তন করে	rename("old.txt", "new.txt");
+perror()	Error-এর বিস্তারিত message দেখায়	perror("File opening failed");
+
+2. <stdlib.h> — General Utilities
+কাজ: Dynamic memory, number conversion, random number, sorting এবং program control-এর জন্য ব্যবহৃত হয়।
+Function / Item	Description	Example
+malloc()	Dynamic memory allocate করে	int *a = malloc(5 * sizeof(int));
+calloc()	Zero-initialized memory allocate করে	int *a = calloc(8, sizeof(int));
+realloc()	Allocated memory-এর size পরিবর্তন করে	a = realloc(a, 12 * sizeof(int));
+free()	Allocated memory release করে	free(a);
+exit()	Program বন্ধ করে	exit(1);
+atoi()	String থেকে integer বানায়	int n = atoi("250");
+atof()	String থেকে double বানায়	double x = atof("7.25");
+atol()	String থেকে long বানায়	long n = atol("987654");
+strtol()	Base অনুযায়ী string থেকে long বানায়	long n = strtol("101", NULL, 2);
+rand()	Random integer তৈরি করে	int n = rand() % 50;
+srand()	Random generator-এর seed সেট করে	srand(1234);
+abs()	Integer-এর absolute value দেয়	int n = abs(-37);
+labs()	Long-এর absolute value দেয়	long n = labs(-9000L);
+qsort()	Array sort করে	qsort(a, 6, sizeof(int), compare);
+bsearch()	Sorted array-তে search করে	bsearch(&key, a, 6, sizeof(int), compare);
+system()	OS command চালায়	system("dir");
+getenv()	Environment variable-এর value নেয়	char *p = getenv("PATH");
+
+3. <string.h> — String & Memory
+কাজ: String এবং memory block নিয়ে কাজ করার জন্য ব্যবহৃত হয়।
+Function / Item	Description	Example
+strlen()	String-এর length বের করে	int n = strlen("Programming");
+strcpy()	String copy করে	strcpy(destination, source);
+strncpy()	নির্দিষ্ট character copy করে	strncpy(city, "Netrokona", 4);
+strcat()	দুইটি string জোড়া দেয়	strcat(first, last);
+strncat()	নির্দিষ্ট character যোগ করে	strncat(title, word, 3);
+strcmp()	দুইটি string compare করে	strcmp(a, b);
+strncmp()	প্রথম n character compare করে	strncmp(code1, code2, 2);
+strchr()	প্রথম নির্দিষ্ট character খুঁজে	strchr(email, '@');
+strrchr()	শেষ নির্দিষ্ট character খুঁজে	strrchr(filename, '.');
+strstr()	Substring খুঁজে	strstr(sentence, "CSE");
+strtok()	String-কে token-এ ভাগ করে	strtok(line, ",");
+memset()	Memory-এর অংশে value বসায়	memset(buffer, 0, sizeof(buffer));
+memcpy()	Memory copy করে	memcpy(copy, original, 20);
+memmove()	Overlapping memory safely copy করে	memmove(arr + 1, arr, 5);
+memcmp()	Memory block compare করে	memcmp(block1, block2, 12);
+strdup()	String-এর duplicate তৈরি করে	char *copy = strdup(name);
+
+4. <math.h> — Mathematical Functions
+কাজ: Mathematical calculation, square root, power, trigonometry এবং logarithm-এর জন্য ব্যবহৃত হয়।
+Function / Item	Description	Example
+sqrt()	Square root বের করে	double r = sqrt(81.0);
+pow()	Power বের করে	double p = pow(5, 3);
+fabs()	Double-এর absolute value	double x = fabs(-8.75);
+ceil()	উপরের পূর্ণসংখ্যায় নেয়	double x = ceil(6.1);
+floor()	নিচের পূর্ণসংখ্যায় নেয়	double x = floor(9.9);
+round()	নিকটতম integer-এ round করে	double x = round(7.6);
+sin()	Sine বের করে	double x = sin(1.57);
+cos()	Cosine বের করে	double x = cos(0.0);
+tan()	Tangent বের করে	double x = tan(0.78);
+asin()	Inverse sine	double x = asin(0.5);
+acos()	Inverse cosine	double x = acos(0.5);
+atan()	Inverse tangent	double x = atan(0.5);
+atan2()	Coordinate থেকে angle বের করে	double a = atan2(4.0, 3.0);
+log()	Natural logarithm	double x = log(10.0);
+log10()	Base-10 logarithm	double x = log10(1000.0);
+exp()	e-এর power বের করে	double x = exp(2.0);
+fmod()	Floating-point remainder দেয়	double r = fmod(17.5, 4.0);
+hypot()	Hypotenuse বের করে	double h = hypot(6.0, 8.0);
+
+5. <ctype.h> — Character Functions
+কাজ: Character letter, digit, uppercase, lowercase ইত্যাদি পরীক্ষা ও conversion করতে ব্যবহৃত হয়।
+Function / Item	Description	Example
+isalpha()	Letter কিনা পরীক্ষা করে	isalpha('M');
+isdigit()	Digit কিনা পরীক্ষা করে	isdigit('8');
+isalnum()	Letter অথবা digit কিনা	isalnum('7');
+isspace()	Space/whitespace কিনা	isspace('\t');
+isupper()	Uppercase কিনা	isupper('Z');
+islower()	Lowercase কিনা	islower('q');
+ispunct()	Punctuation কিনা	ispunct('?');
+iscntrl()	Control character কিনা	iscntrl('\n');
+toupper()	Lowercase → Uppercase	char c = toupper('m');
+tolower()	Uppercase → Lowercase	char c = tolower('R');
+
+6. <time.h> — Date & Time
+কাজ: Current date/time এবং program-এর processor time নিয়ে কাজ করতে ব্যবহৃত হয়।
+Function / Item	Description	Example
+time()	Current calendar time দেয়	time_t now = time(NULL);
+clock()	Processor time মাপে	clock_t start = clock();
+difftime()	দুই সময়ের difference বের করে	double d = difftime(end, start);
+localtime()	Time → local date/time	struct tm *t = localtime(&now);
+gmtime()	Time → UTC time	struct tm *t = gmtime(&now);
+mktime()	struct tm → time_t	time_t x = mktime(&date);
+strftime()	Date/time format করে	strftime(buf, 40, "%d-%m-%Y", t);
+ctime()	Time-কে readable string করে	printf("%s", ctime(&now));
+asctime()	struct tm readable string করে	printf("%s", asctime(t));
+
+7. <stdarg.h> — Variable Arguments
+কাজ: Argument-এর সংখ্যা নির্দিষ্ট নয় এমন function তৈরি করতে ব্যবহৃত হয়।
+Function / Item	Description	Example
+va_list	Variable arguments রাখার type	va_list list;
+va_start()	Argument list শুরু করে	va_start(list, count);
+va_arg()	পরবর্তী argument নেয়	int n = va_arg(list, int);
+va_end()	Argument list শেষ করে	va_end(list);
+
+8. <assert.h> / <errno.h> / <signal.h> / <locale.h>
+কাজ: Debugging, error handling, signal এবং locale setting-এর জন্য ব্যবহৃত হয়।
+Function / Item	Description	Example
+assert()	Condition সত্য কিনা পরীক্ষা করে	assert(age >= 18);
+errno	Error code রাখে	if (errno != 0) puts("Error");
+signal()	Signal handler সেট করে	signal(SIGINT, handler);
+raise()	Program থেকে signal পাঠায়	raise(SIGINT);
+setlocale()	Program-এর locale সেট করে	setlocale(LC_ALL, "");
+
+9. <limits.h> — Integer Limits
+কাজ: Integer type-এর minimum ও maximum value জানার জন্য ব্যবহৃত হয়।
+Function / Item	Description	Example
+CHAR_BIT	একটি char-এ কত bit আছে	printf("%d", CHAR_BIT);
+INT_MIN	int-এর সবচেয়ে ছোট value	printf("%d", INT_MIN);
+INT_MAX	int-এর সবচেয়ে বড় value	printf("%d", INT_MAX);
+LONG_MIN	long-এর minimum value	printf("%ld", LONG_MIN);
+LONG_MAX	long-এর maximum value	printf("%ld", LONG_MAX);
+SHRT_MIN	short-এর minimum value	printf("%d", SHRT_MIN);
+SHRT_MAX	short-এর maximum value	printf("%d", SHRT_MAX);
+UINT_MAX	unsigned int-এর maximum	printf("%u", UINT_MAX);
+ULONG_MAX	unsigned long-এর maximum	printf("%lu", ULONG_MAX);
+
+10. <float.h> — Floating-Point Limits
+কাজ: float ও double-এর range এবং precision জানার জন্য ব্যবহৃত হয়।
+Function / Item	Description	Example
+FLT_MAX	float-এর maximum value	printf("%e", FLT_MAX);
+DBL_MAX	double-এর maximum value	printf("%e", DBL_MAX);
+FLT_MIN	float-এর smallest positive value	printf("%e", FLT_MIN);
+DBL_MIN	double-এর smallest positive value	printf("%e", DBL_MIN);
+FLT_EPSILON	float precision-এর smallest gap	printf("%e", FLT_EPSILON);
+DBL_EPSILON	double precision-এর smallest gap	printf("%e", DBL_EPSILON);
+FLT_DIG	float-এর guaranteed decimal digits	printf("%d", FLT_DIG);
+DBL_DIG	double-এর guaranteed decimal digits	printf("%d", DBL_DIG);
+
+11. <stdbool.h> — Boolean Data Type
+কাজ: C-তে true এবং false ব্যবহার করার সুবিধা দেয়।
+Function / Item	Description	Example
+bool	Boolean data type	bool passed = true;
+true	Boolean value 1	bool light = true;
+false	Boolean value 0	bool error = false;
+
+12. <stddef.h> — Common Core Types & Macros
+কাজ: Common type এবং memory-related macro-এর জন্য ব্যবহৃত হয়।
+Function / Item	Description	Example
+size_t	Size/array index-এর জন্য unsigned type	size_t size = sizeof(data);
+ptrdiff_t	দুই pointer-এর difference রাখে	ptrdiff_t d = p2 - p1;
+NULL	Null pointer constant	int *ptr = NULL;
+offsetof()	Structure member-এর byte offset বের করে	offsetof(struct Student, age);
+
+Important Notes
+•	gets() ব্যবহার করবে না; এটি unsafe. এর পরিবর্তে fgets() ব্যবহার করো।
+•	strdup() ISO C standard-এর অংশ নয়; POSIX-এ প্রচলিত।
+•	sin(), cos(), tan() ইত্যাদিতে angle radian-এ দিতে হয়।
+•	stdbool.h C99 থেকে ব্যবহৃত হয়ে আসছে।
+Quick Revision
+•	stdio → Input / Output
+•	stdlib → Utility / Memory
+•	string → String
+•	math → Mathematics
+•	ctype → Character
+•	time → Time / Date
+•	stdarg → Variable arguments
+•	assert → Debugging
+•	errno → Error handling
+•	signal → Signal handling
+•	locale → Locale settings
+•	limits → Integer limits
+•	float → Floating limits
+•	stdbool → Boolean
+•	stddef → Common types
